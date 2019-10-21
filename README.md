@@ -1,5 +1,5 @@
 # SQL-Agent-Repo
-A Centrailzed Reporting Database for SQL Server Agent Alerts
+A Centralized Reporting Database for SQL Server Agent Alerts
 
 The default functionality for the SQL Agent is to only Send an Email upon the firing of an Agent Alert
 
@@ -17,3 +17,6 @@ Some popular and recommended Alerts are:
 * Uses the SQL Agent, Agent Tokens, Powershell and a SQL Server database
 * All Code is Powershell, TSQL
 * Includes both SSRS and PowerBI Reports
+
+![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/Summary.jpg)
+![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/Details.jpg)
