@@ -3,7 +3,7 @@ A Centralized Reporting Database for SQL Server Agent Alerts
 
 The default functionality for the SQL Agent is to only Send an Email upon the firing of an Agent Alert
 
-This code will allow you to setup a Centralized Logging Database and associated SSRS Reports for SQL Agent Alerts
+This code will allow you to capture all those Alerts from all your SQL Servers into a Central Reporting Database
 
 Some popular and recommended Alerts are:
 
