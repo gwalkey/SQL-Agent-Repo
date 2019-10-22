@@ -22,5 +22,6 @@ All Code is Powershell, TSQL
 
 Includes both SSRS and PowerBI Reports
 
+![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/PowerBI.jpg)
 ![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/Summary.jpg)
 ![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/Details.jpg)
