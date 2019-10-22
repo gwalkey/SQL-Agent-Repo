@@ -13,10 +13,14 @@ Some popular and recommended Alerts are:
 * Error Number 18204 - Backup Failed
 * Error Number 833 - Slow IO
 
-* Consolidates Selected SQL Agent Alerts into one Central Depot for Reporting 
-* Uses the SQL Agent, Agent Tokens, Powershell and a SQL Server database
-* All Code is Powershell, TSQL
-* Includes both SSRS and PowerBI Reports
+Setup instructions in each Subfolder above
+1) Setup the Central SQL Server that will hold all the Alerts from all the other SQL Servers you want to monitor
+2) Setup the Monitored Servers Agents, install a single Agent Job that calls the Powershell script that drops the Alert info into the central table
+3) Use/Write your own SSRS/PowerBI report to surface the global alerts
+
+All Code is Powershell, TSQL
+
+Includes both SSRS and PowerBI Reports
 
 ![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/Summary.jpg)
 ![alt text](https://raw.githubusercontent.com/gwalkey/SQL-Agent-Repo/master/Details.jpg)
