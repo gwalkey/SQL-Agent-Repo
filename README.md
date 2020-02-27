@@ -15,7 +15,7 @@ Some popular and recommended Alerts are:
 
 Setup instructions in each Subfolder above
 1) Setup the Central SQL Server that will hold all the Alerts from all the other SQL Servers you want to monitor
-2) Setup the Monitored Servers by installing an Agent Job that calls the Powershell script passing the Alert info
+2) Setup the Monitored Servers by installing an Agent Job that calls the Powershell script passing in the Alert params
 3) Use My/Write your own SSRS/PowerBI reports to surface your SQL Estate-Wide alerts
 
 All Code is Powershell, TSQL
