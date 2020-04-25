@@ -24,8 +24,8 @@
           <QueryParameter Name="@myEndDate">
             <Value>=Parameters!prmEndDate.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@myServers">
-            <Value>=Parameters!prmServers.Value</Value>
+          <QueryParameter Name="@myErrors">
+            <Value>=Parameters!prmErrors.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandText>SELECT 
@@ -35,7 +35,7 @@ FROM
      [SQLAlerts].[dbo].[AgentAlerts] 
 where 
      EventTime between @myStartDate and @myEndDate and
-     Server in (@myServers)
+     ErrorNumber in (@myErrors)
 GROUP BY
      ErrorNumber
 order by 
@@ -53,22 +53,16 @@ order by
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Servers">
+    <DataSet Name="ErrorNumbers">
       <Query>
         <DataSourceName>localhost</DataSourceName>
-        <CommandText>SELECT 
-	distinct
-    [Server]
-      
-FROM
-	 [SQLAlerts].[dbo].[AgentAlerts]
-order by
-	1</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT DISTINCT ErrorNumber
+FROM            AgentAlerts
+ORDER BY ErrorNumber</CommandText>
       </Query>
       <Fields>
-        <Field Name="Server">
-          <DataField>Server</DataField>
+        <Field Name="ErrorNumber">
+          <DataField>ErrorNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -114,6 +108,7 @@ order by
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
+                      <ToolTip>=Sum(Fields!Count.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -474,20 +469,20 @@ order by
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="prmServers">
+    <ReportParameter Name="prmErrors">
       <DataType>String</DataType>
       <DefaultValue>
         <DataSetReference>
-          <DataSetName>Servers</DataSetName>
-          <ValueField>Server</ValueField>
+          <DataSetName>ErrorNumbers</DataSetName>
+          <ValueField>ErrorNumber</ValueField>
         </DataSetReference>
       </DefaultValue>
-      <Prompt>Server</Prompt>
+      <Prompt>ErrorNumber</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>Servers</DataSetName>
-          <ValueField>Server</ValueField>
-          <LabelField>Server</LabelField>
+          <DataSetName>ErrorNumbers</DataSetName>
+          <ValueField>ErrorNumber</ValueField>
+          <LabelField>ErrorNumber</LabelField>
         </DataSetReference>
       </ValidValues>
       <MultiValue>true</MultiValue>
@@ -496,11 +491,10 @@ order by
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateSerial(2000,1,1)</Value>
+          <Value>=DateAdd("d",-(Day(today)-1), Today)</Value>
         </Values>
       </DefaultValue>
       <Prompt>StartDate</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="prmEndDate">
       <DataType>DateTime</DataType>
@@ -510,7 +504,6 @@ order by
         </Values>
       </DefaultValue>
       <Prompt>EndDate</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -521,7 +514,7 @@ order by
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>prmServers</ParameterName>
+          <ParameterName>prmErrors</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>

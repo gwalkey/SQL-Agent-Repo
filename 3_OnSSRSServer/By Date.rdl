@@ -35,7 +35,7 @@ FROM
      [SQLAlerts].[dbo].[AgentAlerts] 
 where 
      EventTime between @myStartDate and @myEndDate and
-     Server=@myServers
+     Server in (@myServers)
 GROUP BY
      convert([date],EventTime)
 order by 
@@ -114,26 +114,7 @@ order by
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
-                      <ActionInfo>
-                        <Actions>
-                          <Action>
-                            <Drillthrough>
-                              <ReportName>All Alerts - Summary3</ReportName>
-                              <Parameters>
-                                <Parameter Name="prmServers">
-                                  <Value>=Parameters!prmServers.Value(0)</Value>
-                                </Parameter>
-                                <Parameter Name="prmStartDate">
-                                  <Value>=Parameters!prmStartDate.Value</Value>
-                                </Parameter>
-                                <Parameter Name="prmEndDate">
-                                  <Value>=Parameters!prmEndDate.Value</Value>
-                                </Parameter>
-                              </Parameters>
-                            </Drillthrough>
-                          </Action>
-                        </Actions>
-                      </ActionInfo>
+                      <ToolTip>=Sum(Fields!Count.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -498,12 +479,12 @@ order by
     <ReportParameter Name="prmServers">
       <DataType>String</DataType>
       <DefaultValue>
-        <Values>
-          <Value>OWNER-PC</Value>
-        </Values>
+        <DataSetReference>
+          <DataSetName>Servers</DataSetName>
+          <ValueField>Server</ValueField>
+        </DataSetReference>
       </DefaultValue>
       <Prompt>Server</Prompt>
-      <Hidden>true</Hidden>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Servers</DataSetName>
@@ -517,11 +498,10 @@ order by
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateSerial(2000,1,1)</Value>
+          <Value>=DateAdd("d",-(Day(today)-1), Today)</Value>
         </Values>
       </DefaultValue>
       <Prompt>StartDate</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="prmEndDate">
       <DataType>DateTime</DataType>
@@ -531,7 +511,6 @@ order by
         </Values>
       </DefaultValue>
       <Prompt>EndDate</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>

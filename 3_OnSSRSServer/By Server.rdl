@@ -114,27 +114,7 @@ order by
                         <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                       </ChartDataLabel>
-                      <ToolTip>=Fields!Count.Value</ToolTip>
-                      <ActionInfo>
-                        <Actions>
-                          <Action>
-                            <Drillthrough>
-                              <ReportName>All Alerts - Summary2</ReportName>
-                              <Parameters>
-                                <Parameter Name="prmServers">
-                                  <Value>=Fields!Server.Value</Value>
-                                </Parameter>
-                                <Parameter Name="prmStartDate">
-                                  <Value>=Parameters!prmStartDate.Value</Value>
-                                </Parameter>
-                                <Parameter Name="prmEndDate">
-                                  <Value>=Parameters!prmEndDate.Value</Value>
-                                </Parameter>
-                              </Parameters>
-                            </Drillthrough>
-                          </Action>
-                        </Actions>
-                      </ActionInfo>
+                      <ToolTip>=Sum(Fields!Count.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
