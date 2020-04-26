@@ -5,8 +5,10 @@ SQL SATURDAY Viewers:<br>
 Im sorry I couldnt make my presentation on April 25 as all 3 of my Win10 PCs<br>
 decided to lock down security on the camera and mic and kill the Settings App with nonstop GPFaults<br>
 Finally did reinstall and finished by 5pm<br>
-Still, where is the mac server with 480 cores? - Nowhere<br>
 
+And where is the Mac server with 480 cores? - Nowhere<br>
+SQL Server can handle it:<br>
+https://channel9.msdn.com/Events/Ignite/2015/BRK2558
 
 SQL Saturday Presentation Demo is here:<br>
 https://www.sqlsaturday.com/962/Sessions/Details.aspx?sid=101121
