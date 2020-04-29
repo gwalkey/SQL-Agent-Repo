@@ -1,12 +1,11 @@
 # SQL-Agent-Repo
 A Centralized Reporting Database for SQL Server Agent Alerts
 
-SQL SATURDAY Viewers:<br>
-Im sorry I couldnt make my presentation on April 25 as all 3 of my Win10 PCs<br>
+SQL SATURDAY Richmond 2020 Viewers:<br>
+Im sorry I couldnt make my presentation on April 25 as all 3! of my Win10 PCs<br>
 decided to lock down security on the camera and mic and kill the Settings App with nonstop GPFaults<br>
 Finally did reinstall and finished by 5pm<br>
-
-And where is the Mac server with 480 cores? - Nowhere<br>
+But where is the Mac server with 480 cores? - Nowhere<br>
 SQL Server can handle it:<br>
 https://channel9.msdn.com/Events/Ignite/2015/BRK2558
 
